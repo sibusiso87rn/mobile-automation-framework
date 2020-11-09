@@ -1,4 +1,4 @@
-package starter.org.testing.app.core.interfaces;
+package starter.testing.core.interfaces;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;

@@ -1,0 +1,5 @@
+starter/testing/ExecutionEngine.class
+starter/testing/tests/actions/ActionLandingPage.class
+starter/testing/tests/pages/Page_Landing.class
+starter/testing/Hooks.class
+starter/testing/tests/stepdefs/StepDef_LandingPage.class

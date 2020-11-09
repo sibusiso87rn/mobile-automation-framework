@@ -1,4 +1,4 @@
-package starter.org.testing.app.core.interfaces;
+package starter.testing.core.interfaces;
 
 import io.appium.java_client.AppiumDriver;
 

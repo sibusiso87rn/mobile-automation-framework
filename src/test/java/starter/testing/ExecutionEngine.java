@@ -1,4 +1,4 @@
-package testing;
+package starter.testing;
 
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.FeatureWrapper;
@@ -35,8 +35,8 @@ public class ExecutionEngine extends AbstractTestNGSpringContextTests {
 
 
     @BeforeClass(alwaysRun = true)
-    @Parameters({"environment","test.configuration","run.environment"})
-    public void setTestNGProperties(String environment,String testConfiguration,String runEnvironment) throws Exception{
+    @Parameters({"environment","test.configuration"})
+    public void setTestNGProperties(String environment,String testConfiguration) throws Exception{
 
         //Read device details from the testcase on testng xml
         System.setProperty("environment",environment);

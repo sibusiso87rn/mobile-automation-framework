@@ -1,4 +1,4 @@
-package starter.org.testing.app.core.appium;
+package starter.testing.core.driver.appium;
 
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;

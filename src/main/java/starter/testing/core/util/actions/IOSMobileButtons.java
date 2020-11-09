@@ -1,10 +1,10 @@
-package starter.org.testing.app.core.actions;
+package starter.testing.core.util.actions;
 
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import starter.org.testing.app.core.interfaces.IMobileButtons;
+import starter.testing.core.interfaces.IMobileButtons;
 
 /**Emulates the IOS Mobile key events*/
 public class IOSMobileButtons implements IMobileButtons {

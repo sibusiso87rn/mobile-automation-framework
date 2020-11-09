@@ -1,4 +1,4 @@
-package testing;
+package starter.testing;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;

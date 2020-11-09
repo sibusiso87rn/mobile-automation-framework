@@ -1,4 +1,4 @@
-package starter.org.testing.app.core.appium;
+package starter.testing.core.driver.appium;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -6,11 +6,11 @@ import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
-import starter.org.testing.app.core.interfaces.IAppiumDriverSetup;
-import starter.org.testing.app.core.util.file.PropertiesUtil;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import starter.testing.core.interfaces.IAppiumDriverSetup;
+import starter.testing.core.util.file.PropertiesUtil;
 
 import java.net.URL;
 import java.util.Properties;
@@ -34,13 +34,12 @@ public enum AppiumDriverType implements IAppiumDriverSetup {
             capabilities.setCapability(MobileCapabilityType.LOCALE,appiumProperties.getProperty("locale"));
 
             //Settings for real iOS devices
-            if(!Boolean.getBoolean("simulator")){
+            if(!Boolean.parseBoolean(appiumProperties.getProperty("simulator"))){
                 capabilities.setCapability("xcodeOrgId", appiumProperties.getProperty("xcode.org.id"));
                 capabilities.setCapability("xcodeSigningId",appiumProperties.getProperty("xcode.sign.id"));
             }
-
             //Install application based on property install.app equals true
-            if(Boolean.getBoolean("simulator")){
+            if(Boolean.parseBoolean(appiumProperties.getProperty("simulator"))){
                 if (Boolean.parseBoolean(PropertiesUtil.getProperty("install.app"))) {
                     capabilities.setCapability(MobileCapabilityType.APP, pathToAppFile);
                 }else {

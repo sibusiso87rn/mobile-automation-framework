@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 3, Errors: 0, Skipped: 1, Time elapsed: 32.347 s <<< FAILURE! - in TestSuite
+starter.testing.ExecutionEngine.setTestNGProperties  Time elapsed: 1.951 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+Connection refused (Connection refused)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Sibusisos-MBP', ip: 'fe80:0:0:0:189e:2c1e:4e30:df33%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '1.8.0_191'
+Driver info: driver.version: IOSDriver
+	at starter.testing.ExecutionEngine.setTestNGProperties(ExecutionEngine.java:54)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at starter.testing.ExecutionEngine.setTestNGProperties(ExecutionEngine.java:54)
+
+starter.testing.ExecutionEngine.setUpClass  Time elapsed: 32.267 s  <<< FAILURE!
+io.cucumber.core.exception.CucumberException: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused (Connection refused)}}]
+	at starter.testing.ExecutionEngine.setUpClass(ExecutionEngine.java:62)
+Caused by: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused (Connection refused)}}]
+	at starter.testing.ExecutionEngine.setUpClass(ExecutionEngine.java:62)
+
+starter.testing.ExecutionEngine.tearDownClass  Time elapsed: 32.275 s  <<< FAILURE!
+java.lang.NullPointerException
+	at starter.testing.ExecutionEngine.tearDownClass(ExecutionEngine.java:77)
+

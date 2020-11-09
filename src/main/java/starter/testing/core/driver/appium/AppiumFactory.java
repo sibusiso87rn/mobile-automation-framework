@@ -1,11 +1,14 @@
-package starter.org.testing.app.core.appium;
+package starter.testing.core.driver.appium;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import starter.testing.core.util.environment.TestConfigurationProperty;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,6 +19,11 @@ public class AppiumFactory {
     private static AppiumFactory appiumFactoryInstance = null;
     private static final Logger logger                 = LoggerFactory.getLogger(AppiumFactory.class);
     private final AppiumDriverType defaultDriverType   = AppiumDriverType.IPHONE;
+    private static final ThreadLocal<WebDriver> appiumDriverThreadLocal   = new ThreadLocal<>();
+
+
+    @Autowired
+    private TestConfigurationProperty testConfigurationProperty;
 
     private AppiumFactory(){
     }
@@ -28,15 +36,19 @@ public class AppiumFactory {
         return appiumFactoryInstance;
     }
 
-    public WebDriver getDriver(Properties driverProperties) throws Exception {
-        String appiumConfig  = driverProperties.getProperty("driver", defaultDriverType.toString()).toUpperCase();
-        boolean setDebugMode = Boolean.getBoolean(driverProperties.getProperty("debug.mode"));
-        String pathToAppFile = driverProperties.getProperty("binary.path");
+    public AppiumDriver<?> getThreadLocalAppiumDriver(){
+        return (AppiumDriver<?>) appiumDriverThreadLocal.get();
+    }
 
+    public void createAppiumDriver() throws Exception {
+        Properties properties = testConfigurationProperty.getThreadLocalProperties();
+        String appiumConfig   = properties.getProperty("driver", defaultDriverType.toString()).toUpperCase();
+        boolean setDebugMode  = Boolean.getBoolean(properties.getProperty("debug.mode"));
+        String pathToAppFile  = properties.getProperty("binary.path");
+        logger.info("Using app binary from location {}",pathToAppFile);
         AppiumDriverType    selectedDriverType  = determineEffectiveDriverType(appiumConfig);
-        DesiredCapabilities desiredCapabilities = selectedDriverType.getDesiredCapabilities(driverProperties,pathToAppFile,setDebugMode);
-
-        return instantiateWebDriver(desiredCapabilities,selectedDriverType,driverProperties);
+        DesiredCapabilities desiredCapabilities = selectedDriverType.getDesiredCapabilities(properties,pathToAppFile,setDebugMode);
+        appiumDriverThreadLocal.set(instantiateWebDriver(desiredCapabilities,selectedDriverType,properties));
     }
 
     /**
@@ -81,7 +93,12 @@ public class AppiumFactory {
 
     }
 
-
+    public void quitThreadLocalAppiumDriver(){
+        logger.debug("Quiting web driver");
+        getThreadLocalAppiumDriver().quit();
+        logger.debug("Removing driver instance");
+        appiumDriverThreadLocal.remove();
+    }
 
 }
 

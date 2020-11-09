@@ -1,4 +1,4 @@
-package testing.tests.stepdefs;
+package starter.testing.tests.stepdefs;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import starter.testing.core.bean.ApplicationContext;
-import testing.tests.actions.ActionLandingPage;
+import starter.testing.tests.actions.ActionLandingPage;
 
 @Component
 @Lazy

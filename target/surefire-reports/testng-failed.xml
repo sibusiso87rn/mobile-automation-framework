@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Regression]" parallel="tests">
+  <test thread-count="1" verbose="0" name="iOSSimulator(failed)" parallel="tests">
+    <parameter name="environment" value="uat"/>
+    <parameter name="test.configuration" value="iphonesimulator.properties"/>
+    <classes>
+      <class name="starter.testing.ExecutionEngine">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="setUpClass"/>
+          <include name="scenario"/>
+          <include name="tearCreateReport"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="tearDownClass"/>
+          <include name="setTestNGProperties"/>
+          <include name="springTestContextAfterTestMethod"/>
+        </methods>
+      </class> <!-- starter.testing.ExecutionEngine -->
+    </classes>
+  </test> <!-- iOSSimulator(failed) -->
+</suite> <!-- Failed suite [Regression] -->

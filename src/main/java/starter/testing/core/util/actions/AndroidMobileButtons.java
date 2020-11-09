@@ -1,14 +1,12 @@
-package starter.org.testing.app.core.actions;
+package starter.testing.core.util.actions;
 
 import io.appium.java_client.AppiumDriver;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import starter.org.testing.app.core.interfaces.IMobileButtons;
+import starter.testing.core.interfaces.IMobileButtons;
 
 /**Emulates the Android Mobile key events*/
 public class AndroidMobileButtons implements IMobileButtons {
