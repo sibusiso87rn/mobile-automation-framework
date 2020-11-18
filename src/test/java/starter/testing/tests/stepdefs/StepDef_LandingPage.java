@@ -16,20 +16,27 @@ public class StepDef_LandingPage {
 
     final ActionLandingPage actionLandingPage = (ActionLandingPage) ApplicationContext.getComponent(ActionLandingPage.class);
 
-    //Givens
-    @Given("The user is on the google search page")
-    public void theUserIsOnTheLandingPage() {
-        actionLandingPage.validateGoogleLogo();
+    @And("The user enters the first {string}")
+    public void theUserEntersTheFirst(String number) {
+        actionLandingPage.setFirstNumber(number);
     }
 
-    //Then
-    @Then("The search button is visible")
-    public void theSearchButtonIsVisible() {
-        actionLandingPage.validateGoogleSearchButton("Google Search");
+    @And("The user enters the second {string}")
+    public void theUserEntersTheSecond(String number) {
+        actionLandingPage.setSecondNumber(number);
     }
 
-    @And("The I'm feeling lucky button is visible")
-    public void theIMFeelingLuckyButtonIsVisible() {
-        actionLandingPage.validateImFeelingLuckyButton("I'm Feeling Lucky");
+    @Then("The sum is {string}")
+    public void theSumIs(String sum) {
+        actionLandingPage.validateSum(sum);
+    }
+
+    @Given("The user is on the landing screen")
+    public void theUserIsOnTheLandingScreen() {
+    }
+
+    @And("The user clicks the compute button")
+    public void theUserClicksTheComputeButton() {
+        actionLandingPage.computeSum();
     }
 }

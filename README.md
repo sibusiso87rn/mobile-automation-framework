@@ -80,6 +80,8 @@ Write all steps in third-person point of view. If first-person and third-person 
 
 * https://automationpanda.com/2017/01/30/bdd-101-writing-good-gherkin/
 
+* https://medium.com/@ivantay2003/setting-up-appium-in-os-x-ecd9e7108a9c
+
 ## Credits
 
 Sibusiso Radebe

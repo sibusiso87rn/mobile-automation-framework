@@ -28,6 +28,8 @@ public enum AppiumDriverType implements IAppiumDriverSetup {
             capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, appiumProperties.getProperty("phone.platform.version"));
             capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
             capabilities.setCapability(MobileCapabilityType.UDID, appiumProperties.getProperty("device.id"));
+            //capabilities.setCapability("useNewWDA",true);
+            //capabilities.setCapability("updatedWDABundleId", "com.bambada.WebDriverAgentRunners");
 
             //Set locale settings
             capabilities.setCapability(MobileCapabilityType.LANGUAGE,appiumProperties.getProperty("language"));

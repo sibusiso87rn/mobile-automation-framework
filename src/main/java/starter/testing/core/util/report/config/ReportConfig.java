@@ -86,6 +86,6 @@ public class ReportConfig {
     }
 
     public String getDeviceName(){
-        return TestConfigurationProperty.getThreadLocalProperties().getProperty("browser");
+        return TestConfigurationProperty.getThreadLocalProperties().getProperty("device.name");
     }
 }

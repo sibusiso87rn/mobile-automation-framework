@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import starter.testing.core.util.actions.UserActions;
-import starter.testing.tests.pages.Page_Landing;
+import starter.testing.tests.pages.Page_ComputeSum;
 
 @Lazy
 @Scope("prototype")
@@ -13,18 +13,24 @@ import starter.testing.tests.pages.Page_Landing;
 public class ActionLandingPage {
 
     @Autowired
-    Page_Landing landingPage;
+    Page_ComputeSum landingPage;
 
-    public void validateGoogleSearchButton(String expectedButtonText){
-        UserActions.validateText(landingPage.getBtnSearchButton(),expectedButtonText);
+    public void setFirstNumber(String number){
+        UserActions.input(landingPage.getBtnIntegerAButton(),number);
     }
 
-    public void validateImFeelingLuckyButton(String expectedButtonText){
-        UserActions.validateText(landingPage.getBtnImFeelingLucky(),expectedButtonText);
+    public void setSecondNumber(String number){
+        UserActions.input(landingPage.getBtnIntegerBButton(),number);
     }
 
-    public void validateGoogleLogo(){
-        UserActions.isElementPresent(landingPage.getLblLogo());
+
+    public void computeSum(){
+        UserActions.click(landingPage.getBtnComputeSum());
+    }
+
+
+    public void validateSum(String expectedSum){
+        UserActions.validateText(landingPage.getLblSumLabel(),expectedSum);
     }
 
 }

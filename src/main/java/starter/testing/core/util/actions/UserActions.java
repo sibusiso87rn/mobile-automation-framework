@@ -2,12 +2,14 @@ package starter.testing.core.util.actions;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Component;
 import starter.testing.core.bean.ApplicationContext;
 
@@ -164,16 +166,16 @@ public class UserActions {
 
     public static void waitForElementToBeClickable(WebElement element, WebDriver driver){
         try {
-            logger.info("Checking if the element is clickable...the wait time is " + OBJECT_WAIT_TIME + " seconds");
+            logger.info("Checking if the element is clickable...the wait time is {} seconds",OBJECT_WAIT_TIME);
             Wait wait = new FluentWait<>(driver)
                     .withTimeout(Duration.ofSeconds(OBJECT_WAIT_TIME))
                     .pollingEvery(Duration.ofSeconds(1))
                     .ignoring(NoSuchElementException.class);
+
             wait.until((Function) ExpectedConditions.elementToBeClickable(element));
-            logger.info("Checking if the element is clickable successful, element found " + element.toString());
+            logger.info("Checking if the element is clickable successful, element found {} ",element.toString());
         }catch (Exception e) {
-            e.printStackTrace();
-            logger.error("Failed to locate element after 30 seconds :" + e.getMessage());
+            logger.error("Failed to locate element after 30 seconds : {}",e.getMessage());
             assertThat(false, is(equalTo(true)));
         }
     }
@@ -198,12 +200,11 @@ public class UserActions {
 
     public static void click(WebElement element, WebDriver driver) {
         try {
-            waitForElementToBeClickable(element,driver);
-            logger.debug("About to click on element "+ element.toString());
+            logger.debug("About to click on element {}",element.toString());
             element.click();
-            logger.debug("Success clicking on element " + element.toString());
+            logger.debug("Success clicking on element {}",element.toString());
         } catch (Exception e) {
-            logger.error("Failed to click on element :" + e.getMessage());
+            logger.error("Failed to click on element : {}",e.getMessage());
             assertThat(false, is(equalTo(true)));        }
     }
 
@@ -290,5 +291,51 @@ public class UserActions {
                 matcher.matches(),
                 is(true));
     }
+
+    /*public WebElement commonWaitToFindElement_GetElement(WebDriver driver,
+                                                         int timeOutInSeconds, String findElementBy, String expr)
+            throws TimeoutException {
+        WebElement element = null;
+        try {
+            // Element is Click able - it is Displayed and Enabled.
+            WebDriverWait wait = new WebDriverWait(driver,timeOutInSeconds);
+
+            switch (findElementBy){
+                case "xpath":
+                    element = wait.until(ExpectedConditions.elementToBeClickable(By
+                            .xpath(expr)));
+            }
+            if (findElementBy.equals("xpath")) {
+                element = wait.until(ExpectedConditions.elementToBeClickable(By
+                        .xpath(expr)));
+            } else if (findElementBy.equals("id")) {
+                element = wait.until(ExpectedConditions.elementToBeClickable(By
+                        .id(expr)));
+            } else if (findElementBy.equals("cssSelector")) {
+                element = wait.until(ExpectedConditions.elementToBeClickable(By
+                        .cssSelector(expr)));
+            } else if (findElementBy.equals("className")) {
+                element = wait.until(ExpectedConditions.elementToBeClickable(By
+                        .className(expr)));
+            } else if (findElementBy.equals("linkText")) {
+                element = wait.until(ExpectedConditions.elementToBeClickable(By
+                        .linkText(expr)));
+            }
+        } catch (NoSuchElementException e) {
+            MyPropsLogger.getLogger().error(
+                    "NoSuchElementException in commonWaitToFindElement_GetElement for :"
+                            + e.getMessage(), e);
+        } catch (TimeoutException e) {
+            MyPropsLogger.getLogger().error(
+                    "TimeoutException in commonWaitToFindElement_GetElement for :"
+                            + e.getMessage(), e);
+        } catch (Exception e) {
+            MyPropsLogger.getLogger().error(
+                    "Exception in commonWaitToFindElement_GetElement for :"
+                            + e.getMessage(), e);
+        }
+        return element;
+    }*/
+
 
 }

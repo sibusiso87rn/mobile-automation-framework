@@ -7,12 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.apache.logging.log4j.LogManager;
 import starter.testing.core.bean.ApplicationContext;
 
-public abstract class BasePage {
+public abstract class AbstractBasePage {
 
     protected AppiumDriver<?> driver;
-    private static final Logger logger = LogManager.getLogger(BasePage.class);
+    private static final Logger logger = LogManager.getLogger(AbstractBasePage.class);
 
-    public BasePage(){
+    public AbstractBasePage(){
         driver = ApplicationContext.getTestBean().getAppiumDriver();
         logger.info("Creating page object ["+this.getClass().getSimpleName()+"] for sessionId [" + driver.getSessionId()+"] and threadId ["+Thread.currentThread().getId()+"]");
         PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
