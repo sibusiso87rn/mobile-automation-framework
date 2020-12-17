@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 33.869 s <<< FAILURE! - in TestSuite
+starter.testing.ExecutionEngine.scenario  Time elapsed: 5.4 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: is "34"
+     but: was "24"
+
+starter.testing.ExecutionEngine.scenario  Time elapsed: 1.184 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected: is "Welcome to NBK DVP"
+     but: was "Welcome to\nNBK DVP"
+

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="2" failed="2" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-12-09T12:02:59 AST" name="Regression" finished-at="2020-12-09T12:03:29 AST" duration-ms="29934">
+    <groups>
+      <group name="cucumber scenarios">
+        <method signature="ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" name="scenario" class="starter.testing.ExecutionEngine"/>
+      </group> <!-- cucumber scenarios -->
+    </groups>
+    <test started-at="2020-12-09T12:02:59 AST" name="iOSSimulator" finished-at="2020-12-09T12:03:29 AST" duration-ms="29934">
+      <class name="starter.testing.ExecutionEngine">
+        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:02:59 AST" name="springTestContextBeforeTestClass" finished-at="2020-12-09T12:02:59 AST" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:02:59 AST" name="springTestContextPrepareTestInstance" finished-at="2020-12-09T12:02:59 AST" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="561" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method is-config="true" signature="setTestNGProperties(java.lang.String, java.lang.String)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:02:59 AST" name="setTestNGProperties" finished-at="2020-12-09T12:03:08 AST" duration-ms="8523" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[uat]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[androidsimulator.properties]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setTestNGProperties -->
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:08 AST" name="setUpClass" finished-at="2020-12-09T12:03:09 AST" duration-ms="954" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:09 AST" name="springTestContextBeforeTestMethod" finished-at="2020-12-09T12:03:09 AST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:09 AST" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-12-09T12:03:15 AST" duration-ms="5912" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["The user adds two numbers and computes a sum"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Compute Sum]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scenario -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:15 AST" name="springTestContextAfterTestMethod" finished-at="2020-12-09T12:03:15 AST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:15 AST" name="springTestContextBeforeTestMethod" finished-at="2020-12-09T12:03:15 AST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:15 AST" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-12-09T12:03:19 AST" duration-ms="4365" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["The user adds two numbers and computes a sum"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Compute Sum]"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scenario -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:19 AST" name="springTestContextAfterTestMethod" finished-at="2020-12-09T12:03:19 AST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method signature="scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:19 AST" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-12-09T12:03:24 AST" duration-ms="5393" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["The user adds two numbers and computes a sum"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Compute Sum]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[
+Expected: is "34"
+     but: was "24"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: 
+Expected: is "34"
+     but: was "24"
+at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
+at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+at starter.testing.core.util.actions.GenericUserActions.validateText(GenericUserActions.java:258)
+at starter.testing.core.util.actions.GenericUserActions.validateText(GenericUserActions.java:253)
+at starter.testing.tests.actions.ActionLandingPage.validateSum(ActionLandingPage.java:31)
+at starter.testing.tests.stepdefs.StepDef_LandingPage.theSumIs(StepDef_LandingPage.java:31)
+at ✽.The sum is "34"(file:///Users/sibusisoradebe/IdeaProjects/mobile-automation-framework/src/test/resources/features/ComputeSum.feature:10)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scenario -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:19 AST" name="springTestContextBeforeTestMethod" finished-at="2020-12-09T12:03:19 AST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:24 AST" name="springTestContextAfterTestMethod" finished-at="2020-12-09T12:03:24 AST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:24 AST" name="springTestContextBeforeTestMethod" finished-at="2020-12-09T12:03:24 AST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:24 AST" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-12-09T12:03:26 AST" duration-ms="1184" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify page title is correct"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Compute Sum]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[
+Expected: is "Welcome to NBK DVP"
+     but: was "Welcome to\nNBK DVP"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: 
+Expected: is "Welcome to NBK DVP"
+     but: was "Welcome to\nNBK DVP"
+at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
+at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+at starter.testing.core.util.actions.GenericUserActions.validateText(GenericUserActions.java:258)
+at starter.testing.core.util.actions.GenericUserActions.validateText(GenericUserActions.java:253)
+at starter.testing.tests.actions.ActionLandingPage.validatePageTitle(ActionLandingPage.java:35)
+at starter.testing.tests.stepdefs.StepDef_LandingPage.theTitleReads(StepDef_LandingPage.java:45)
+at ✽.The title reads "Welcome to NBK DVP"(file:///Users/sibusisoradebe/IdeaProjects/mobile-automation-framework/src/test/resources/features/ComputeSum.feature:18)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scenario -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:26 AST" name="springTestContextAfterTestMethod" finished-at="2020-12-09T12:03:26 AST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void starter.testing.ExecutionEngine.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper) throws java.lang.Throwable]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:26 AST" name="tearDownClass" finished-at="2020-12-09T12:03:29 AST" duration-ms="2981" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:29 AST" name="springTestContextAfterTestClass" finished-at="2020-12-09T12:03:29 AST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+        <test-method is-config="true" signature="tearCreateReport()[pri:0, instance:starter.testing.ExecutionEngine@26bab2f1]" started-at="2020-12-09T12:03:29 AST" name="tearCreateReport" finished-at="2020-12-09T12:03:29 AST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearCreateReport -->
+      </class> <!-- starter.testing.ExecutionEngine -->
+    </test> <!-- iOSSimulator -->
+  </suite> <!-- Regression -->
+</testng-results>

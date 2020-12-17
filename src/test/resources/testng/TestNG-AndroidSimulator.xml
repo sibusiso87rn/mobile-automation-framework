@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression" thread-count="1" parallel="tests">
+    <test name="iOSSimulator">
+        <parameter name="environment"        value="uat"/>
+        <parameter name="test.configuration" value="androidsimulator.properties"/>
+        <classes>
+            <class name="starter.testing.ExecutionEngine"/>
+        </classes>
+    </test>
+</suite>
+
+
