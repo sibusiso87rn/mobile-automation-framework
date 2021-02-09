@@ -53,12 +53,12 @@
     ,
     {
       "key":   "browserstack.username",
-      "value": "sibusisoradebe1"
+      "value": ""
     }
     ,
     {
       "key":   "browserstack.password",
-      "value": "XZo7stVGCUKqvMvHRg6p"
+      "value": ""
     }
   ],
   "restServiceList": [
