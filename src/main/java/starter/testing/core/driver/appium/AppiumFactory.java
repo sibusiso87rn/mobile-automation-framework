@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import starter.testing.core.bean.ApplicationContext;
+import starter.testing.core.util.environment.EnvironmentConfig;
 import starter.testing.core.util.environment.TestConfigurationProperty;
 import starter.testing.core.util.report.config.ReportConfig;
 
@@ -69,7 +70,9 @@ public class AppiumFactory {
     }
 
     private RemoteWebDriver instantiateWebDriver(DesiredCapabilities desiredCapabilities,AppiumDriverType driverType,Properties driverProperties) throws MalformedURLException {
-        String appiumServerLocation = driverProperties.getProperty("appium.server.location", "http://127.0.0.1:4723/wd/hub");
+        String browserStackUsername = EnvironmentConfig.getInstance().getConfigValue("browserstack.username");
+        String browserStackPassword = EnvironmentConfig.getInstance().getConfigValue("browserstack.password");
+        String appiumServerLocation = "https://"+browserStackUsername+":"+browserStackPassword+"@hub-cloud.browserstack.com/wd/hub";
         boolean useRemoteWebDriver  = Boolean.getBoolean(driverProperties.getProperty("remote.driver"));
         ReportConfig reportConfig   = (ReportConfig) ApplicationContext.getComponent(ReportConfig.class);
 
