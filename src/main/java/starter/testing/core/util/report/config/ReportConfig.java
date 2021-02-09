@@ -25,16 +25,16 @@ public class ReportConfig {
 
     public ReportConfig(){
         EnvironmentConfig.getInstance();
-        reportOutPutDir   = EnvironmentConfig.getConfigValue(REPORT_OUTPUT_DIR);
-        klovServerConfig  = EnvironmentConfig.getRestServiceConfigByKey(KLOV_REPORT_SERVER_KEY);
-        klovMongoDatabase = EnvironmentConfig.getDatabaseConfigsByKey(KLOV_MONGO_SERVER_KEY);
-        projectName    = EnvironmentConfig.getApplicationName();
-        trendsPathName = EnvironmentConfig.getConfigValue(CUCUMBER_TRENDS_OUTPUT_DIR);
-        cucumberReportPathName = EnvironmentConfig.getConfigValue(CUCUMBER_REPROT_OUTPUT_DIR);
-        environment            = EnvironmentConfig.getEnvironment().toUpperCase();
+        reportOutPutDir   = EnvironmentConfig.getInstance().getConfigValue(REPORT_OUTPUT_DIR);
+        klovServerConfig  = EnvironmentConfig.getInstance().getRestServiceConfigByKey(KLOV_REPORT_SERVER_KEY);
+        klovMongoDatabase = EnvironmentConfig.getInstance().getDatabaseConfigsByKey(KLOV_MONGO_SERVER_KEY);
+        projectName    = EnvironmentConfig.getInstance().getApplicationName();
+        trendsPathName = EnvironmentConfig.getInstance().getConfigValue(CUCUMBER_TRENDS_OUTPUT_DIR);
+        cucumberReportPathName = EnvironmentConfig.getInstance().getConfigValue(CUCUMBER_REPROT_OUTPUT_DIR);
+        environment            = EnvironmentConfig.getInstance().getEnvironment().toUpperCase();
 
-        createKlovReport  = EnvironmentConfig.getBooleanValue(KLOV_REPORT);
-        createSparkReport = EnvironmentConfig.getBooleanValue(SPARK_REPORT);
+        createKlovReport  = EnvironmentConfig.getInstance().getBooleanValue(KLOV_REPORT);
+        createSparkReport = EnvironmentConfig.getInstance().getBooleanValue(SPARK_REPORT);
     }
 
     private RestServiceConfig getKlovServerConfig() {

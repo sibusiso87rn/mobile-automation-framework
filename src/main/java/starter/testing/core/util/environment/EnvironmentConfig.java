@@ -18,7 +18,7 @@ public class EnvironmentConfig {
     private static Config config;
 
     //Singleton instance
-    private static EnvironmentConfig environmentConfig   = null;
+    public static EnvironmentConfig environmentConfig   = null;
 
     private static final Logger logger = LogManager.getLogger(EnvironmentConfig.class);
 
@@ -33,15 +33,15 @@ public class EnvironmentConfig {
         try {
             environment = System.getProperty("environment").toLowerCase();
         }catch (NullPointerException e){
-            throw new Exception("Test environment variable is null, please select environment");
+            throw new Exception("Test environment variable is null, please set the environment-variable for testing environment ");
         }
 
         IEnvironmentProperties environmentProperties = ConfigFactory.create(IEnvironmentProperties.class);
 
-        logger.info("Loading test environment configuration for : "+ environment.toUpperCase());
+        logger.info("Loading test environment configuration for : {} ", environment.toUpperCase());
         configfilepath = environmentProperties.getConfigPath()+environment.toLowerCase()+".json";
 
-        logger.info("Using config path : "+ configfilepath);
+        logger.info("Using config path : {}", configfilepath);
 
         //Loads the configs from file
         config = loadEnvironmentConfigsFromFile(configfilepath);
@@ -90,11 +90,13 @@ public class EnvironmentConfig {
         return null;
     }
 
-    public static String getConfigValue(String key){
+    public String getConfigValue(String key){
         ConfigValue results = getConfig(key);
-        logger.debug("Searching for config key {}",key);
         if(results!=null){
-            logger.debug("[{}] key value found, the value is [{}]",key,results.getValue());
+            if(!key.contains("password")||!key.contains("username")){
+                logger.debug("Searching for config key {}",key);
+                logger.debug("[{}] key value found, the value is [{}]",key,results.getValue());
+            }
             return resolveEnvironment(results.getValue());
         }else{
             logger.error("[{}] key value not found, the value is [{}]",key,null);
@@ -102,11 +104,11 @@ public class EnvironmentConfig {
         }
     }
 
-    public static Boolean getBooleanValue(String key){
+    public Boolean getBooleanValue(String key){
        return Boolean.parseBoolean(getConfigValue(key));
     }
 
-    public static DataBaseConfig getDatabaseConfigsByKey(String key){
+    public DataBaseConfig getDatabaseConfigsByKey(String key){
         for(int i = 0; i < getCurrentConfiguration().getDataBaseList().size(); i ++){
             if(getCurrentConfiguration().getDataBaseList().get(i).getKey().equals(key)){
                 logger.debug("Found DatabaseConfigValue with key " + key);
@@ -117,7 +119,7 @@ public class EnvironmentConfig {
         return null;
     }
 
-    public static RestServiceConfig getRestServiceConfigByKey(String key){
+    public RestServiceConfig getRestServiceConfigByKey(String key){
         for(int i = 0; i < getCurrentConfiguration().getRestServiceList().size(); i ++){
             if(getCurrentConfiguration().getRestServiceList().get(i).getKey().equals(key)){
                 logger.debug("Found DatabaseConfigValue with key " + key);
@@ -128,19 +130,19 @@ public class EnvironmentConfig {
         return null;
     }
 
-    private static String resolveEnvironment(String element){
+    private String resolveEnvironment(String element){
         return element.replace("${environment}",getEnvironment());
     }
 
-    public static String getEnvironment(){
+    public String getEnvironment(){
         return getCurrentConfiguration().getEnvironment().getEnvironmentName();
     }
 
-    public static String getApplicationName(){
+    public String getApplicationName(){
         return getConfigValue("application.name");
     }
 
-    public static String getDriverLocation(){
+    public String getDriverLocation(){
         return getConfigValue("web.driver.location").replace("${currentos}",getCurrentConfiguration().getUserOs().getOS());
     }
 

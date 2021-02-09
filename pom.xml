@@ -46,6 +46,23 @@
         </dependency>
         <!--Cucumber Dependencies-->
 
+
+        <!--Browser Stack-->
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>3.3.0</version>
+        </dependency>
         <!-- Hamcrest Matchers -->
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -117,11 +134,6 @@
         </dependency>
         <dependency>
             <groupId>com.aventstack</groupId>
-            <artifactId>extentreports-cucumber4-adapter</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>${extent.version}</version>
         </dependency>
@@ -135,7 +147,11 @@
             <artifactId>klov-reporter</artifactId>
             <version>5.0.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports-testng-adapter</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         <!--Reports-->
 
         <!--Logging -->
@@ -172,10 +188,19 @@
                 <version>3.0.0-M4</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng/TestNG-AndroidSimulator.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng/TestNG-Remote.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>-Dtestng.dtd.http=true</argLine>
+                    <properties>
+                        <property>
+                            <name>dataproviderthreadcount</name>
+                            <value>1</value>
+                        </property>
+                    </properties>
+                    <parallel>classes</parallel>
+                    <threadCount>2</threadCount>
                 </configuration>
+
             </plugin>
         </plugins>
     </build>

@@ -5,7 +5,7 @@
   "configValues": [
     {
       "key":   "application.name",
-      "value": "${environment} Application Name"
+      "value": "${environment} DVP"
     },
     {
       "key":   "device.settings.location",
@@ -50,6 +50,16 @@
       "key":   "cucumber.report.path",
       "value": "target/cucumber-report.json"
     }
+    ,
+    {
+      "key":   "browserstack.username",
+      "value": "sibusisoradebe1"
+    }
+    ,
+    {
+      "key":   "browserstack.password",
+      "value": "XZo7stVGCUKqvMvHRg6p"
+    }
   ],
   "restServiceList": [
     {
@@ -60,9 +70,9 @@
     },
     {
       "serverPort": "8080",
-      "baseHost": "https://sampleurl",
-      "basePath": "/basepath/",
-      "uniqueKey": "uniquekey"
+      "baseHost": "https://api.browserstack.com",
+      "basePath": "/automate/",
+      "uniqueKey": "browserstackapi"
    }
   ],
   "dataBaseList": [

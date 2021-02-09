@@ -18,7 +18,6 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class ExtentReportListener implements ConcurrentEventListener{
 
     private final ReportConfig reportConfig = (ReportConfig) ApplicationContext.getComponent(ReportConfig.class);
@@ -179,7 +178,7 @@ public class ExtentReportListener implements ConcurrentEventListener{
 
     private void initReporters(){
         logger.info("Will be creating klover report {}",reportConfig.isCreateKlovReport());
-        logger.info("Will be creating spark report {}",reportConfig.isCreateSparkReport());
+        logger.info("Will be creating spark report {}" ,reportConfig.isCreateSparkReport());
         if(reportConfig.isCreateKlovReport()){
             KlovReporterService.getInstance();
             ExtentService.getInstance().attachReporter(KlovReporterService.getInstance().getKlovReport());

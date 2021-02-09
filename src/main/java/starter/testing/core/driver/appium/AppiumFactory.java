@@ -8,7 +8,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import starter.testing.core.bean.ApplicationContext;
 import starter.testing.core.util.environment.TestConfigurationProperty;
+import starter.testing.core.util.report.config.ReportConfig;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,8 +38,8 @@ public class AppiumFactory {
         return appiumFactoryInstance;
     }
 
-    public AppiumDriver<?> getThreadLocalAppiumDriver(){
-        return (AppiumDriver<?>) appiumDriverThreadLocal.get();
+    public WebDriver getThreadLocalAppiumDriver(){
+        return  appiumDriverThreadLocal.get();
     }
 
     public void createAppiumDriver() throws Exception {
@@ -68,24 +70,20 @@ public class AppiumFactory {
 
     private RemoteWebDriver instantiateWebDriver(DesiredCapabilities desiredCapabilities,AppiumDriverType driverType,Properties driverProperties) throws MalformedURLException {
         String appiumServerLocation = driverProperties.getProperty("appium.server.location", "http://127.0.0.1:4723/wd/hub");
-        boolean useRemoteWebDriver = Boolean.getBoolean(driverProperties.getProperty("remote.driver"));
+        boolean useRemoteWebDriver  = Boolean.getBoolean(driverProperties.getProperty("remote.driver"));
+        ReportConfig reportConfig   = (ReportConfig) ApplicationContext.getComponent(ReportConfig.class);
+
 
         logger.info("Current Appium Config Selection: " + driverType);
         logger.info("Current Appium Server Location: " + appiumServerLocation);
 
+        desiredCapabilities.setCapability("name", reportConfig.getProjectName()); // test name
+        desiredCapabilities.setCapability("build", "Build Number 1"); // CI/CD job or build name
+        desiredCapabilities.setCapability("project", driverProperties.getProperty("project")); // CI/CD job or build name
+
         if (useRemoteWebDriver) {
             logger.info("****Using remote driver****");
-            URL seleniumGridURL = new URL(System.getProperty("gridURL"));
-            String desiredVersion = driverProperties.getProperty("desiredVersion");
-            String desiredPlatform = driverProperties.getProperty("desiredPlatform");
-
-            if (null != desiredPlatform && !desiredPlatform.isEmpty()) {
-                desiredCapabilities.setPlatform(Platform.valueOf(desiredPlatform.toUpperCase()));
-            }
-
-            if (null != desiredVersion && !desiredVersion.isEmpty()) {
-                desiredCapabilities.setVersion(desiredVersion);
-            }
+            URL seleniumGridURL    = new URL(System.getProperty("gridURL"));
             return new RemoteWebDriver(seleniumGridURL, desiredCapabilities);
         } else {
             return driverType.getWebDriverObject(new URL(appiumServerLocation), desiredCapabilities);

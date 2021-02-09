@@ -22,7 +22,7 @@ public class TestConfigurationProperty {
 
     public static void createTestConfigProperties(String testConfiguration){
         //Read properties
-        String testPropertiesLocation = EnvironmentConfig.getConfigValue(CoreConstants.TEST_SETTINGS_CONF_KEY)+testConfiguration;
+        String testPropertiesLocation = EnvironmentConfig.getInstance().getConfigValue(CoreConstants.TEST_SETTINGS_CONF_KEY)+testConfiguration;
         logger.info("Adding testing configuration from location {} ",testPropertiesLocation);
         driverProperties.set(PropertiesUtil.mergeProperties(PropertiesUtil.getProperties(testPropertiesLocation)));
         PropertiesUtil.printProperties(driverProperties.get());

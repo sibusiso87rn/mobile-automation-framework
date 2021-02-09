@@ -3,6 +3,7 @@ package starter.testing.core.bean;
 import io.appium.java_client.AppiumDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +35,7 @@ public class TestBean {
         return new ReportConfig();
     }
 
-    public AppiumDriver<?> getAppiumDriver(){
+    public WebDriver getAppiumDriver(){
        return AppiumFactory.getInstance().getThreadLocalAppiumDriver();
     }
 

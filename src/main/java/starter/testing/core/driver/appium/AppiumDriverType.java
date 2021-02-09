@@ -28,8 +28,7 @@ public enum AppiumDriverType implements IAppiumDriverSetup {
             capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, appiumProperties.getProperty("phone.platform.version"));
             capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
             capabilities.setCapability(MobileCapabilityType.UDID, appiumProperties.getProperty("device.id"));
-            //capabilities.setCapability("useNewWDA",true);
-            //capabilities.setCapability("updatedWDABundleId", "com.bambada.WebDriverAgentRunners");
+            capabilities.setCapability("browserName", "iPhone");
 
             //Set locale settings
             capabilities.setCapability(MobileCapabilityType.LANGUAGE,appiumProperties.getProperty("language"));
@@ -74,20 +73,25 @@ public enum AppiumDriverType implements IAppiumDriverSetup {
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
             capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, appiumProperties.getProperty("device.name", "Android Simulator"));
-            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, appiumProperties.getProperty("phone.platform.version"));
             capabilities.setCapability(MobileCapabilityType.UDID, appiumProperties.getProperty("device.id", "DEFAULT_ANDROID_DEVICE_ID"));
             capabilities.setCapability(MobileCapabilityType.APP, pathToAppFile);
             capabilities.setCapability("appActivity",appiumProperties.getProperty("app.activity"));
             capabilities.setCapability("appPackage",appiumProperties.getProperty("app.package"));
+            capabilities.setCapability("browserName", "Android");
 
             if (debug) {
                 capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "3600");
+            }
+            //Install application based on property install.app equals true
+            if(Boolean.parseBoolean(appiumProperties.getProperty("remote.driver"))){
+                capabilities.setCapability("realMobile", "true");
+                capabilities.setCapability("os_version", appiumProperties.getProperty("mobile.os.version"));
+                capabilities.setCapability("app", appiumProperties.getProperty("app"));
             }
             return capabilities;
         }
 
         public RemoteWebDriver getWebDriverObject(URL appiumServerURL, DesiredCapabilities capabilities) {
-
             return new AndroidDriver<>(appiumServerURL, capabilities);
         }
     },

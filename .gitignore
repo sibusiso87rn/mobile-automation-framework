@@ -1,0 +1,68 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+target/classes/starter/testing/core/AbstractAction.class
+target/cucumber-html-reports/embeddings/embedding_-1021173923.png
+target/cucumber-html-reports/embeddings/embedding_-1024425289.png
+target/cucumber-html-reports/embeddings/embedding_-1140996099.png
+target/cucumber-html-reports/embeddings/embedding_-1198802405.png
+target/cucumber-html-reports/embeddings/embedding_-1210120651.png
+target/cucumber-html-reports/embeddings/embedding_-1455859708.png
+target/cucumber-html-reports/embeddings/embedding_-1737758745.png
+target/cucumber-html-reports/embeddings/embedding_-1951714681.png
+target/cucumber-html-reports/embeddings/embedding_-535102778.png
+target/cucumber-html-reports/embeddings/embedding_-750780307.png
+target/cucumber-html-reports/embeddings/embedding_-963871189.png
+target/cucumber-html-reports/embeddings/embedding_1103516571.png
+target/cucumber-html-reports/embeddings/embedding_1179651559.png
+target/cucumber-html-reports/embeddings/embedding_1247014396.png
+target/cucumber-html-reports/embeddings/embedding_1335764875.png
+target/cucumber-html-reports/embeddings/embedding_1532578212.png
+target/cucumber-html-reports/embeddings/embedding_1832240603.png
+target/cucumber-html-reports/embeddings/embedding_198568854.png
+target/cucumber-html-reports/embeddings/embedding_304464061.png
+target/cucumber-html-reports/embeddings/embedding_333030904.png
+target/cucumber-html-reports/embeddings/embedding_336894718.png
+target/cucumber-html-reports/embeddings/embedding_40820615.png
+target/cucumber-html-reports/embeddings/embedding_562607929.png
+target/generated-sources/
+target/generated-test-sources/
+target/test-classes/starter/testing/actions/
+target/test-classes/starter/testing/pages/
+target/test-classes/starter/testing/stepdefs/

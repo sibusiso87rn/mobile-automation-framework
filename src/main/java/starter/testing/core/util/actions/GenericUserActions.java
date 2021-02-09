@@ -136,7 +136,7 @@ public class GenericUserActions {
                     .ignoring(NoSuchElementException.class);
             wait.until((Function) ExpectedConditions.visibilityOfAllElements(element));
         } catch (Exception e) {
-            logger.error("Failed to locate element after 30 seconds :" + e.getMessage());
+            logger.error("Failed to locate element after 30 seconds {}",e.getMessage());
             assertThat(false, is(equalTo(true)));        }
     }
 

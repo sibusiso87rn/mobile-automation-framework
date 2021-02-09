@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Parallel" thread-count="2" parallel="tests">
+    <test name="Samsung Galaxy S9 Plus">
+        <parameter name="environment"        value="uat"/>
+        <parameter name="test.configuration" value="androidremote.properties"/>
+        <parameter name="device"             value="Samsung Galaxy S9 Plus"/>
+        <parameter name="mobile.os.version"  value="9.0"/>
+        <classes>
+            <class name="starter.testing.CucumberExecutionEngine"/>
+        </classes>
+    </test>
+    <test name="Google Pixel 3">
+        <parameter name="environment"        value="uat"/>
+        <parameter name="test.configuration" value="androidremote.properties"/>
+        <parameter name="device"             value="Google Pixel 3"/>
+        <parameter name="mobile.os.version"  value="9.0"/>
+        <classes>
+            <class name="starter.testing.CucumberExecutionEngine"/>
+        </classes>
+    </test>
+</suite>
+
+
