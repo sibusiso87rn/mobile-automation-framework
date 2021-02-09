@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Parallel-Without Cucumber" thread-count="4" parallel="methods">
+    <parameter name="environment"        value="uat"/>
+    <parameter name="test.configuration" value="androidremote.properties"/>
+    <test name="Samsung Galaxy S9 Plus">
+        <classes>
+            <class name="starter.testing.tests.testng.AddTest"/>
+        </classes>
+    </test>
+</suite>
+
+
